@@ -121,6 +121,9 @@ class IsaacusRanker:
 
             top_k (int, optional): The number of documents to return. Falls back to `self.top_k` if None.
         """
+        if not documents:
+            return {"documents": []}
+
         top_k = top_k or self.top_k
         client = self._get_client()
         response = client.rerankings.create(
@@ -145,6 +148,9 @@ class IsaacusRanker:
 
             top_k (int, optional): The number of documents to return. Falls back to `self.top_k` if None.
         """
+        if not documents:
+            return {"documents": []}
+
         top_k = top_k or self.top_k
         client = self._get_aclient()
         response = await client.rerankings.create(
