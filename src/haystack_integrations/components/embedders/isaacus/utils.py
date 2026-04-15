@@ -1,9 +1,17 @@
 from __future__ import annotations
+
 from typing import Any, Dict, List, Optional
+
 import requests
 
+
 class IsaacusClient:
-    def __init__(self, api_key: str, base_url: str = "https://api.isaacus.com/v1", timeout: int = 30):
+    def __init__(
+        self,
+        api_key: str,
+        base_url: str = "https://api.isaacus.com/v1",
+        timeout: int = 30,
+    ):
         self.api_key = api_key
         self.base_url = base_url.rstrip("/")
         self.timeout = timeout
@@ -27,7 +35,10 @@ class IsaacusClient:
         if overflow_strategy:
             payload["overflow_strategy"] = overflow_strategy
 
-        headers = {"Authorization": f"Bearer {self.api_key}", "Content-Type": "application/json"}
+        headers = {
+            "Authorization": f"Bearer {self.api_key}",
+            "Content-Type": "application/json",
+        }
         if extra_headers:
             headers.update(extra_headers)
 

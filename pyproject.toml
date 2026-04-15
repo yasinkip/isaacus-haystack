@@ -4,15 +4,16 @@ build-backend = "hatchling.build"
 
 [project]
 name = "isaacus-haystack"
-version = "0.1.0"
-description = "Isaacus embedders for Haystack 2.x"
+version = "0.2.0"
+description = "Isaacus models for Haystack 2.x"
 readme = "README.md"
 license = { text = "Apache-2.0" }
 requires-python = ">=3.9"
 authors = [{ name = "Isaacus" }]
 dependencies = [
   "haystack-ai>=2.14.0",
-  "requests>=2.31.0"
+  "isaacus>=0.21.0",
+  "requests>=2.31.0",
 ]
 
 [project.urls]
@@ -47,3 +48,9 @@ dependencies = [
 
 [tool.hatch.envs.test.scripts]
 all = "pytest -q"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.2",
+    "pytest-asyncio>=1.2.0",
+]

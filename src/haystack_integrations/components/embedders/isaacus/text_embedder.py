@@ -1,8 +1,12 @@
 from __future__ import annotations
+
 from typing import List, Optional
+
 from haystack import component
 from haystack.utils import Secret
+
 from .utils import IsaacusClient
+
 
 @component
 class IsaacusTextEmbedder:
