@@ -1,4 +1,5 @@
 import logging
+from dataclasses import replace
 from typing import Any
 
 from haystack import Document, component, default_from_dict, default_to_dict
@@ -67,12 +68,13 @@ class IsaacusEnricher:
         """
         self.model = model
         self.overflow_strategy = overflow_strategy
-        self.exclude = exclude if exclude else []
+        raw_exclude = exclude if exclude else []
+        self.exclude = [kind for kind in raw_exclude if kind in self._ENRICHMENT_KINDS]
         self._include = [
             kind for kind in self._ENRICHMENT_KINDS if kind not in self.exclude
         ]
 
-        unknown = [kind for kind in self.exclude if kind not in self._ENRICHMENT_KINDS]
+        unknown = [kind for kind in raw_exclude if kind not in self._ENRICHMENT_KINDS]
         if unknown:
             logger.warning(
                 "The following exclude values are not valid enrichment kinds and will be ignored: %s. "
@@ -134,7 +136,7 @@ class IsaacusEnricher:
             result = res.document
             new_enrichments = {kind: getattr(result, kind) for kind in self._include}
             meta = {**doc.meta, **new_enrichments}
-            enriched_docs.append(Document(content=doc.content, meta=meta))
+            enriched_docs.append(replace(doc, meta=meta))
 
         return {"documents": enriched_docs}
 
