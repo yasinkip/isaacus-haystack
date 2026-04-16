@@ -36,7 +36,7 @@ class IsaacusRanker:
         api_key: Secret = Secret.from_env_var(["ISAACUS_API_KEY"]),
         api_base_url: str = "https://api.isaacus.com/v1",
     ) -> None:
-        """Creates an instance of 'IsaacusReranker' for ordering documents based on their relevance to a query.
+        """Creates an instance of 'IsaacusRanker' for ordering documents based on their relevance to a query.
 
         Args:
             model (str): Isaacus model to use for reranking.
