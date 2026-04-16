@@ -32,8 +32,8 @@ embedder = IsaacusDocumentEmbedder(
     # dimensions=1792,                 # optionally set to match your vector DB.
 )
 ranker = IsaacusRanker(
-    model="kanon-2-reranker"
-    # top_k = 1,                       # optionally specify the number of documents you want returned.
+    model="kanon-2-reranker",
+    # top_k=1,                        # optionally specify the number of documents you want returned.
 ) 
 
 raw_docs = [Document(content="Isaacus releases Kanon 2 Embedder: the world's best legal embedding model."),
