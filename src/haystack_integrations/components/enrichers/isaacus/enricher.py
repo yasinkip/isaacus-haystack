@@ -50,7 +50,7 @@ class IsaacusEnricher:
         *,
         exclude: list[str] | None = None,
         overflow_strategy: str = "auto",
-        api_key: Secret = Secret.from_env_var(["ISAACUS_API_KEY"]),
+        api_key: Secret = Secret.from_env_var("ISAACUS_API_KEY"),
         api_base_url: str = "https://api.isaacus.com/v1",
     ) -> None:
         """Creates an instance of 'IsaacusEnricher' for enriching documents into structured knowledge graphs.
