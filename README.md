@@ -53,7 +53,7 @@ store.write_documents(embedder.run(raw_docs)["documents"])
 pipe = Pipeline()
 pipe.add_component("q", IsaacusTextEmbedder(api_key=Secret.from_env_var("ISAACUS_API_KEY"), model="kanon-2-embedder"))
 pipe.add_component("ret", InMemoryEmbeddingRetriever(document_store=store))
-pipe.add_component("rank", IsaacusRanker(model="kanon-2-reranker"))
+pipe.add_component("rank", ranker)
 pipe.connect("q.embedding", "ret.query_embedding")
 pipe.connect("ret.documents", "rank.documents")
 
