@@ -4,7 +4,7 @@
 
 Isaacus' offering includes:
 - [Kanon 2 Embedder](https://isaacus.com/blog/introducing-kanon-2-embedder), the world's best legal embedding model (as measured on the [Massive Legal Embedding Benchmark](https://isaacus.com/blog/introducing-mleb)),
-- [Kanon 2 Reranker](https://isaacus.com/blog/kanon-2-reranker), the world's most powerful legal reranking model,
+- [Kanon 2 Reranker](https://isaacus.com/blog/kanon-2-reranker), the most powerful reranking model for legal RAG,
 - [Kanon 2 Enricher](https://isaacus.com/blog/kanon-2-enricher), the world's first hierarchical graphitization model,
 - [legal zero-shot classification](https://docs.isaacus.com/models/introduction#universal-classification) and [legal extractive question answering models](https://docs.isaacus.com/models/introduction#answer-extraction).
 
