@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.3.0 
+## 0.3.0
 - Add IsaacusEnricher component.
 
 ## 0.2.0
